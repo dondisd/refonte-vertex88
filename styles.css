@@ -64,10 +64,10 @@ h1, h2, h3, .wordmark { font-family: 'Space Grotesk', sans-serif; }
 }
 .hero-88 {
   position: absolute; z-index: -1; right: -4%; top: 6%;
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-family: 'Space Grotesk', Arial, sans-serif; font-weight: 700;
   font-size: clamp(180px, 42vw, 460px); line-height: 1;
   color: transparent; -webkit-text-stroke: 1px rgba(244, 241, 234, 0.16);
-  user-select: none;
+  user-select: none; font-synthesis: none;
 }
 .hero-inner { max-width: 620px; }
 .hero-tag {
@@ -117,7 +117,8 @@ h1, h2, h3, .wordmark { font-family: 'Space Grotesk', sans-serif; }
 @keyframes pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
 
 /* Entrée séquencée du hero */
-.stagger { opacity: 0; transform: translateY(22px); animation: rise 0.7s ease-out forwards; }
+/* opacity de départ 0.012 (pas 0) : l'élément compte pour le LCP dès le premier paint */
+.stagger { opacity: 0.012; transform: translateY(22px); animation: rise 0.7s ease-out forwards; }
 .s1 { animation-delay: 0.15s; } .s2 { animation-delay: 0.3s; } .s3 { animation-delay: 0.45s; }
 .s4 { animation-delay: 0.6s; } .s5 { animation-delay: 0.78s; }
 @keyframes rise { to { opacity: 1; transform: translateY(0); } }
